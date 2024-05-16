@@ -1,0 +1,8 @@
+<div style="float: left;">
+    <ol>
+        <li ng-repeat="item in narrowItDown.foundItems">
+            {{ item }}
+            <button ng-click="narrowItDown.onRemove({index: $index});">Remove Item</button>
+        </li>
+    </ol>
+</div>
