@@ -27,6 +27,11 @@
 
     function NarrowItDownController(MenuSearchService){
         var narrowItDown = this;
+
+        var promise = MenuSearchService.getMatchedMenuItems("tofu");
+        promise.then(function(response){
+            console.log('response: ', response); 
+        });
     }
 
     MenuSearchService.$inject = ['$http', 'ApiBasePath'];
@@ -36,17 +41,14 @@
 
         service.getMatchedMenuItems = function(searchTerm){
             return $http({
-                method: get,
-                url: ApiBasePath + '/menu_items.json',
-                params: {
-                    description: searchTerm
-                }
+                method: "GET",
+                url: (ApiBasePath + "/menu_items.json")
             }).then(function (result) {
                 // process result and only keep items that match
                 var foundItems;
                 
                 // return processed items
-                return foundItems;
+                return result.data;
             });
         };
     }
