@@ -17,8 +17,14 @@
       <button class="btn btn-primary" ng-click="narrowCtrl.getNarrowMenuItems(narrowCtrl.searchTerm)">Narrow It Down For Me!</button>
     </div>
 
-    <!-- <found-items on-remove="...."></found-items> -->
-    <found-items my-list="narrowCtrl"></found-items>
+    <!-- <found-items on-remove="...."></found-items>
+     -->
+  
+  <found-items my-list="narrowCtrl"></found-items>
+  
+  <div ng-if="narrowCtrl.foundItems.length==0">
+    <h3>Nothing found</h3>
+</div>
   <script src="angular.min.js"></script>
   <script src="app.js"></script>
 </body>
